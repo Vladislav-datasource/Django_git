@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+    {% block title %}Test page{% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+</head>
+<body>
+    <aside>
+        <h1>Just a django app</h1>
+        <ul>
+            <a href="{% url 'home' %}"><li>Home</li></a>
+            <a href="{% url 'data'%}"><li>Data</li></a>
+            <a href="{% url 'git_projects' %}"><li>Projects</li></a>
+        </ul>
+    </aside>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>
