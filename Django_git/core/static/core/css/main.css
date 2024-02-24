@@ -1,3 +1,80 @@
-body {
-    background: #B0BF1A;
+body{
+    background-color: black;
+    display: block;
+}
+
+h1 {
+    text-align: center;
+}
+
+header {
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1.5px solid black;
+    background: white;
+    margin: 0 0 5 0px;
+    display: block;
+}
+
+header ul li {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+header a {
+    display: inline-block;
+    text-decoration: none;
+    text-color: white;
+    text-align: center;
+}
+
+.buttons-header {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 0;
+    width: 90px;
+    height: 50px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.3em;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+}
+
+.buttons-header:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    transition: box-shadow 0.6s ease;
+}
+
+.buttons-header:active {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+    transition: box-shadow 0.3s ease;
+}
+
+.buttons-main {
+    background-color: black;
+    color: white;
+    width: 125px;
+    height: 50px;
+    font-size: 1.3em;
+    margin: 0 0 5px 10px;
+}
+
+main {
+    display: block;
+}
+
+footer {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer-image {
+    margin-top: auto;
+    height: 10em;
+    width: 100%;
 }

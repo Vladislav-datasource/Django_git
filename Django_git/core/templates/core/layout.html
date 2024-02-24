@@ -9,18 +9,20 @@
     <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
 </head>
 <body>
-    <aside>
+    <header>
         <h1>Just a django app</h1>
         <ul>
-            <a href="{% url 'home' %}"><li>Home</li></a>
-            <a href="{% url 'data'%}"><li>Data</li></a>
-            <a href="{% url 'git_projects' %}"><li>Projects</li></a>
+            <button class="buttons-header"><a href="{% url 'home' %}"><li>Home</li></a></button>
+            <button class="buttons-header"><a href="{% url 'data'%}"><li>Data</li></a></button>
+            <button class="buttons-header"><a href="{% url 'git_projects' %}"><li>Projects</li></a></button>
         </ul>
-    </aside>
+    </header>
     <main>
         {% block content %}
         {% endblock %}
     </main>
-
+    <footer>
+        <img src="{% static 'core/img/pine.jpg' %}" class="footer-image">
+    </footer>
 </body>
 </html>
