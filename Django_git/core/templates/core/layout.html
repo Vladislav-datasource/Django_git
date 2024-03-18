@@ -3,23 +3,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>
-    {% block title %}Test page{% endblock %}
-    </title>
     <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
 </head>
 <body>
     <header>
-        <h1>Just a django app</h1>
-        <ul>
-            <button class="buttons-header"><a href="{% url 'home' %}"><li>Home</li></a></button>
-            <button class="buttons-header"><a href="{% url 'data'%}"><li>Data</li></a></button>
-            <button class="buttons-header"><a href="{% url 'git_projects' %}"><li>Projects</li></a></button>
-        </ul>
-    </header>
-    <main>
-        {% block content %}
+        {% block unregister %}
+            {% if user.is_authenticated %}
+                <h1 class="main_article_title"> Do you need to automate your web browsing? </h1>
+            {% else %}
+                <h1 class="main_article_title"> Please authenticate yourself </h1>
+            {% endif %}
         {% endblock %}
+        <nav>
+            <ul>
+                <li><a href ="{% url 'home' %} " class="buttons-header">Home</a></li>
+                <li><a href ="{% url 'data' %}" class="buttons-header">Data</a></li>
+                <li><a href ="{% url 'git_projects' %}" class="buttons-header">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+        {% block title %}
+            <title>
+                {% if user.is_authenticated %}
+                    {{ user.username }}'s Profile
+                {% else %}
+                    MAIN
+                {% endif %}
+            </title>
+        {% endblock %}
+
+    <main>
+        {% if user.is_authenticated %}
+            {% block content %}
+                <div class="reg_users_content">
+                    <h1> Quality data collection from web with the possibility of automation </h1>
+                </div>
+                <div class="reg_users_content1">
+                    <h1> We don't send a lot of requests to the server, instead just one per page </h1>
+                </div>
+            {% endblock %}
+        {% else %}
+            {% block login %}
+                <h3 class="log_in_button">Please login<a class="link" href="/login"> here</a></h3>
+            {% endblock %}
+        {% endif %}
     </main>
     <footer>
         <img src="{% static 'core/img/pine.jpg' %}" class="footer-image">
